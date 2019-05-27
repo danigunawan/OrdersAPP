@@ -24,16 +24,20 @@ class UserRepository {
         headers: {"Content-Type": "application/json"},
         body: json.encode(postData));
 
-    // .then((http.Response res) {
-    User user = User.fromJson(json.decode(res.body));
+    var retorno = json.decode(res.body);
 
-    // await persistData('user.first_name', user.first_name);
-    // await persistData('user.last_name', user.last_name);
-    // await persistData('user.id', user.id.toString());
-    // await persistData('user.email', user.email.toString());
-    // await persistData('user.auth_token', user.auth_token.toString());
-
-    return user;
+    if (retorno['error'] == null) {
+      User user = User.fromJson(json.decode(res.body));
+      return user;
+    } else {
+      try {
+        if (retorno['error']['user_authentication'][0] == 'invalid credentials') {
+          throw ('Credenciais Inválidas');
+        }
+      } catch (error) {
+        throw (error);
+      }
+    }
   }
 
   Future<void> deleteToken() async {
@@ -69,18 +73,21 @@ class UserRepository {
   }
 
   Future<bool> hasToken() async {
-    User currentUser = User.fromMap(await storage.readAll());
+    Map<String, String> items = await storage.readAll();
+    if (items.length > 0) {
+      User currentUser = User.fromMap(await storage.readAll());
 
-    http.Response res = await http
-        .get('http://localhost:3000/api/v1/users/${currentUser.id}', headers: {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer ${currentUser.auth_token}"
-    });
+      http.Response res = await http.get(
+          'http://localhost:3000/api/v1/users/${currentUser.id}',
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer ${currentUser.auth_token}"
+          });
 
-    if (res.statusCode == 200) {
-      return true;
-    } else {
-      return false;
+      if (res.statusCode == 200) {
+        return true;
+      }
     }
+    return false;
   }
 }

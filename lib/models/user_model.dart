@@ -20,8 +20,8 @@ class User {
         email = json['email'],
         auth_token = json['auth_token'];
 
-  User.fromMap(Map<String, String> map)
-      : id = map['user.id'] != null ? int.parse(map['user.id']) : '',
+  User.fromMap(Map<String, dynamic> map)
+      : id = int.parse(map['user.id']),
         first_name = map['user.first_name'],
         last_name = map['user.last_name'],
         email = map['user.email'],
