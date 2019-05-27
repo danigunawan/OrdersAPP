@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		027DDCA51AC2019AEFEBFFE23C599635 /* flutter_secure_storage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CE77199AF2746713314425ECA49E48 /* flutter_secure_storage-dummy.m */; };
-		51E0F7D8D57198BCEC5151EDC27E6365 /* FlutterSecureStoragePlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = D2190209C754DBB8C27E3A5BBCCB3386 /* FlutterSecureStoragePlugin.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		6682E9721EA70E40AB60DF6B523FC259 /* FlutterSecureStoragePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2AE685A9848E6AFE5B9A014286E5F6 /* FlutterSecureStoragePlugin.m */; };
+		51E0F7D8D57198BCEC5151EDC27E6365 /* FlutterSecureStoragePlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = F83FE7E2F8EECCCDCE0EDA7EBD209844 /* FlutterSecureStoragePlugin.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6682E9721EA70E40AB60DF6B523FC259 /* FlutterSecureStoragePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 7323594FE17C3F5A8A3AB0AF590DCE27 /* FlutterSecureStoragePlugin.m */; };
 		C1C1C8B5BA037C5CF60DBB6D8A29EC17 /* Pods-Runner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B60CF26286EF63F83C5DE2E9EED167 /* Pods-Runner-dummy.m */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +28,7 @@
 		1F5F2858E6EE7F4E5E6C883CE01C7156 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 		2B67C12345D4B46364C0C3AB51D6CFBB /* libPods-Runner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Runner.a"; path = "libPods-Runner.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59C2EEC5FAD8D631345038D91DE75D18 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../../../../../../flutter/bin/cache/artifacts/engine/ios/LICENSE; sourceTree = "<group>"; };
+		7323594FE17C3F5A8A3AB0AF590DCE27 /* FlutterSecureStoragePlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FlutterSecureStoragePlugin.m; path = "../../../../../../../../flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage-3.2.1+1/ios/Classes/FlutterSecureStoragePlugin.m"; sourceTree = "<group>"; };
 		75B60CF26286EF63F83C5DE2E9EED167 /* Pods-Runner-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Runner-dummy.m"; sourceTree = "<group>"; };
 		77A77A7F3D1D1F4A96A113FDF49412A1 /* flutter_secure_storage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = flutter_secure_storage.xcconfig; sourceTree = "<group>"; };
 		8D3369FCD910A92E6681B903AAF7990B /* flutter_secure_storage.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = flutter_secure_storage.podspec; path = "../../../../../../../flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage-3.2.1+1/ios/flutter_secure_storage.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -40,11 +41,10 @@
 		C6756962C25E13C28B6F2127EB7DCD36 /* Pods-Runner-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Runner-acknowledgements.plist"; sourceTree = "<group>"; };
 		CC36E3CB4533D767DF84ED9223B01719 /* Pods-Runner-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Runner-frameworks.sh"; sourceTree = "<group>"; };
 		D20D5BBDD935873D2C9AA52E7EA738EF /* flutter_secure_storage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "flutter_secure_storage-prefix.pch"; sourceTree = "<group>"; };
-		D2190209C754DBB8C27E3A5BBCCB3386 /* FlutterSecureStoragePlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FlutterSecureStoragePlugin.h; path = "../../../../../../../../flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage-3.2.1+1/ios/Classes/FlutterSecureStoragePlugin.h"; sourceTree = "<group>"; };
 		D2477C68C79EB80995096CEAF06EC3E2 /* Flutter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Flutter.podspec; path = ../../../../../../flutter/bin/cache/artifacts/engine/ios/Flutter.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		DE2AE685A9848E6AFE5B9A014286E5F6 /* FlutterSecureStoragePlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FlutterSecureStoragePlugin.m; path = "../../../../../../../../flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage-3.2.1+1/ios/Classes/FlutterSecureStoragePlugin.m"; sourceTree = "<group>"; };
 		E667A0449AAC7F0FC5805BDE435B9B03 /* Pods-Runner-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Runner-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E878C7D61ACE7E65F56896CF7B37C16A /* Flutter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Flutter.framework; path = ../../../../../../flutter/bin/cache/artifacts/engine/ios/Flutter.framework; sourceTree = "<group>"; };
+		F83FE7E2F8EECCCDCE0EDA7EBD209844 /* FlutterSecureStoragePlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FlutterSecureStoragePlugin.h; path = "../../../../../../../../flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage-3.2.1+1/ios/Classes/FlutterSecureStoragePlugin.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +65,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C0E4AD0DAFF9684535B2A533F42CCD7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F83FE7E2F8EECCCDCE0EDA7EBD209844 /* FlutterSecureStoragePlugin.h */,
+				7323594FE17C3F5A8A3AB0AF590DCE27 /* FlutterSecureStoragePlugin.m */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +126,15 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		3AD1307951F848CA477B63F505BBAC4B /* flutter_secure_storage */ = {
+			isa = PBXGroup;
+			children = (
+				B089C4FE8F37D5F18BC537ED735EF01E /* ios */,
+			);
+			name = flutter_secure_storage;
+			path = flutter_secure_storage;
+			sourceTree = "<group>";
+		};
 		42F5BBD4FEAC15611D22BD9543ACF353 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,15 +144,6 @@
 			);
 			name = "Support Files";
 			path = "../../../../Pods/Target Support Files/flutter_secure_storage";
-			sourceTree = "<group>";
-		};
-		46617ED2DFA5023629962748330D7A93 /* plugins */ = {
-			isa = PBXGroup;
-			children = (
-				E32DEEF412FA1C0DF9BA1ECCCF4C0D51 /* flutter_secure_storage */,
-			);
-			name = plugins;
-			path = plugins;
 			sourceTree = "<group>";
 		};
 		49E44F6CFDA86B3C5F6003B0D2F47288 /* .. */ = {
@@ -153,6 +163,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5564DC577BBC17CF992C44ED47BF5C9C /* OrdersAPP */ = {
+			isa = PBXGroup;
+			children = (
+				9D27C3FC450F53F775C15BCB9A4722A7 /* ios */,
+			);
+			name = OrdersAPP;
+			path = OrdersAPP;
+			sourceTree = "<group>";
+		};
+		56CA90D7F62E99F28575F7EEDD10DCB8 /* .symlinks */ = {
+			isa = PBXGroup;
+			children = (
+				FBD659B63A7BD4A7A3D9BBF3F9BD4F80 /* plugins */,
+			);
+			name = .symlinks;
+			path = .symlinks;
+			sourceTree = "<group>";
+		};
 		58456858B3AED4334FCF6C4A5E967EF3 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +188,15 @@
 				9D9FFCE6E73C6085BC6ED284529FBE78 /* flutter_secure_storage */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		5AEBB02B8265595F7D04A7E51858005C /* FlutterProjects */ = {
+			isa = PBXGroup;
+			children = (
+				5564DC577BBC17CF992C44ED47BF5C9C /* OrdersAPP */,
+			);
+			name = FlutterProjects;
+			path = FlutterProjects;
 			sourceTree = "<group>";
 		};
 		60502997A40B341ADFCCF65098F47236 /* .. */ = {
@@ -200,15 +237,6 @@
 			);
 			sourceTree = "<group>";
 		};
-		81D21F3B1EE858DC2BE5FFCC3AA3BFD9 /* .symlinks */ = {
-			isa = PBXGroup;
-			children = (
-				46617ED2DFA5023629962748330D7A93 /* plugins */,
-			);
-			name = .symlinks;
-			path = .symlinks;
-			sourceTree = "<group>";
-		};
 		8A087729A03FB1B88AD503D51CCD043C /* Pod */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,13 +256,13 @@
 			path = ../.symlinks/flutter/ios;
 			sourceTree = "<group>";
 		};
-		97170F1D446E5B6BFF9061E46DFBA02E /* FlutterProjects */ = {
+		9D27C3FC450F53F775C15BCB9A4722A7 /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				F23CD771666078C58E083FF5B235CB57 /* orders_app */,
+				56CA90D7F62E99F28575F7EEDD10DCB8 /* .symlinks */,
 			);
-			name = FlutterProjects;
-			path = FlutterProjects;
+			name = ios;
+			path = ios;
 			sourceTree = "<group>";
 		};
 		9D9FFCE6E73C6085BC6ED284529FBE78 /* flutter_secure_storage */ = {
@@ -248,29 +276,10 @@
 			path = ../.symlinks/plugins/flutter_secure_storage/ios;
 			sourceTree = "<group>";
 		};
-		BFF8D7CBA7BE262C63B39C5B73BB29AA /* Classes */ = {
+		B089C4FE8F37D5F18BC537ED735EF01E /* ios */ = {
 			isa = PBXGroup;
 			children = (
-				D2190209C754DBB8C27E3A5BBCCB3386 /* FlutterSecureStoragePlugin.h */,
-				DE2AE685A9848E6AFE5B9A014286E5F6 /* FlutterSecureStoragePlugin.m */,
-			);
-			name = Classes;
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		C28D026C717B02F2E94C2512DC10CAAF /* ios */ = {
-			isa = PBXGroup;
-			children = (
-				BFF8D7CBA7BE262C63B39C5B73BB29AA /* Classes */,
-			);
-			name = ios;
-			path = ios;
-			sourceTree = "<group>";
-		};
-		C5AE53AAA946904DB6777B85C772B632 /* ios */ = {
-			isa = PBXGroup;
-			children = (
-				81D21F3B1EE858DC2BE5FFCC3AA3BFD9 /* .symlinks */,
+				0C0E4AD0DAFF9684535B2A533F42CCD7 /* Classes */,
 			);
 			name = ios;
 			path = ios;
@@ -292,31 +301,22 @@
 			path = "Target Support Files/Pods-Runner";
 			sourceTree = "<group>";
 		};
-		E32DEEF412FA1C0DF9BA1ECCCF4C0D51 /* flutter_secure_storage */ = {
-			isa = PBXGroup;
-			children = (
-				C28D026C717B02F2E94C2512DC10CAAF /* ios */,
-			);
-			name = flutter_secure_storage;
-			path = flutter_secure_storage;
-			sourceTree = "<group>";
-		};
 		EE7373C0AA520750471341C24B1F28E8 /* .. */ = {
 			isa = PBXGroup;
 			children = (
-				97170F1D446E5B6BFF9061E46DFBA02E /* FlutterProjects */,
+				5AEBB02B8265595F7D04A7E51858005C /* FlutterProjects */,
 			);
 			name = ..;
 			path = ..;
 			sourceTree = "<group>";
 		};
-		F23CD771666078C58E083FF5B235CB57 /* orders_app */ = {
+		FBD659B63A7BD4A7A3D9BBF3F9BD4F80 /* plugins */ = {
 			isa = PBXGroup;
 			children = (
-				C5AE53AAA946904DB6777B85C772B632 /* ios */,
+				3AD1307951F848CA477B63F505BBAC4B /* flutter_secure_storage */,
 			);
-			name = orders_app;
-			path = orders_app;
+			name = plugins;
+			path = plugins;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
