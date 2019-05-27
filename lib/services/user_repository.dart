@@ -31,7 +31,8 @@ class UserRepository {
       return user;
     } else {
       try {
-        if (retorno['error']['user_authentication'][0] == 'invalid credentials') {
+        if (retorno['error']['user_authentication'][0] ==
+            'invalid credentials') {
           throw ('Credenciais Inválidas');
         }
       } catch (error) {
@@ -76,16 +77,19 @@ class UserRepository {
     Map<String, String> items = await storage.readAll();
     if (items.length > 0) {
       User currentUser = User.fromMap(await storage.readAll());
+      try {
+        http.Response res = await http.get(
+            'http://localhost:3000/api/v1/users/${currentUser.id}',
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": "Bearer ${currentUser.auth_token}"
+            });
 
-      http.Response res = await http.get(
-          'http://localhost:3000/api/v1/users/${currentUser.id}',
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer ${currentUser.auth_token}"
-          });
-
-      if (res.statusCode == 200) {
-        return true;
+        if (res.statusCode == 200) {
+          return true;
+        }
+      } catch (error) {
+        return false;
       }
     }
     return false;
