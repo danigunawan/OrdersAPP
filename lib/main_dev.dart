@@ -34,9 +34,9 @@ class SimpleBlocDelegate extends BlocDelegate {
 void main() {
 
   AppConfig().setAppConfig(
-    appEnvironment: AppEnvironment.PROD,
+    appEnvironment: AppEnvironment.DEV,
+    apiUrl: 'http://localhost:3000/api/v1/',
     loginUrl: 'http://localhost:3000/api/v1/authenticate',
-    apiUrl: 'http://localhost:3000/api/v1/authenticate',
     themeData: ThemeData(
       primarySwatch: Colors.blueGrey,
       primaryColor: Colors.blue,

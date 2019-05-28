@@ -1,9 +1,12 @@
 import 'dart:async';
 import 'dart:convert';
 
+import '../app_config.dart';
+
 import 'package:meta/meta.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:orders_app/models/profile_model.dart';
 
 import '../models/user_model.dart';
 
@@ -20,14 +23,14 @@ class UserRepository {
     };
 
     http.Response res = await http.post(
-        'http://localhost:3000/api/v1/authenticate',
+        AppConfig().loginUrl,
         headers: {"Content-Type": "application/json"},
         body: json.encode(postData));
 
     var retorno = json.decode(res.body);
 
     if (retorno['error'] == null) {
-      User user = User.fromJson(json.decode(res.body));
+      User user = User.fromJson(retorno);
       return user;
     } else {
       try {
@@ -53,14 +56,17 @@ class UserRepository {
   }
 
   Future<void> persistUser(User user) async {
-    await persistData('user.first_name', user.first_name);
-    await persistData('user.last_name', user.last_name);
-    await persistData('user.id', user.id.toString());
-    await persistData('user.email', user.email.toString());
-    await persistData('user.auth_token', user.auth_token.toString());
-
-    // await storage.write(key: 'auth_token', value: token);
-    return;
+    try {
+      await persistData('user.first_name', user.first_name);
+      await persistData('user.last_name', user.last_name);
+      await persistData('user.id', user.id.toString());
+      await persistData('user.email', user.email.toString());
+      await persistData('user.profile', user.profile.toJson().toString());
+      await persistData('user.auth_token', user.auth_token.toString());
+      return true;
+    } catch (error) {
+      throw (error);
+    }
   }
 
   Future<void> persistToken(String token) async {
@@ -79,13 +85,14 @@ class UserRepository {
       User currentUser = User.fromMap(await storage.readAll());
       try {
         http.Response res = await http.get(
-            'http://localhost:3000/api/v1/users/${currentUser.id}',
+            '${AppConfig().apiUrl}users/${currentUser.id}',
             headers: {
               "Content-Type": "application/json",
               "Authorization": "Bearer ${currentUser.auth_token}"
             });
 
         if (res.statusCode == 200) {
+          print('Validado!');
           return true;
         }
       } catch (error) {
