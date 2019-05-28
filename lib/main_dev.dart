@@ -38,7 +38,7 @@ void main() {
     apiUrl: 'http://localhost:3000/api/v1/',
     loginUrl: 'http://localhost:3000/api/v1/authenticate',
     themeData: ThemeData(
-      primarySwatch: Colors.blueGrey,
+      primarySwatch: Colors.orange,
       primaryColor: Colors.blue,
     )
   );

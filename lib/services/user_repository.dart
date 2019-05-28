@@ -79,6 +79,15 @@ class UserRepository {
     return;
   }
 
+  Future<int> getUserId() async {
+    User currentUser = User.fromMap(await storage.readAll());
+    return currentUser.id;
+  }
+  Future<String> getToken() async {
+    User currentUser = User.fromMap(await storage.readAll());
+    return currentUser.auth_token;
+  }
+
   Future<bool> hasToken() async {
     Map<String, String> items = await storage.readAll();
     if (items.length > 0) {
@@ -96,9 +105,11 @@ class UserRepository {
           return true;
         }
       } catch (error) {
+        deleteAll();
         return false;
       }
     }
+    deleteAll();
     return false;
   }
 }
