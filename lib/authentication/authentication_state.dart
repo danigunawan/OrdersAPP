@@ -21,3 +21,12 @@ class AuthenticationLoading extends AuthenticationState {
   @override
   String toString() => 'AuthenticationLoading';
 }
+
+class AppConfigDarkTheme extends AuthenticationState {
+  @override
+  String toString() => 'AppConfigDarkTheme';
+}
+class AppConfigLightTheme extends AuthenticationState {
+  @override
+  String toString() => 'AppConfigLightTheme';
+}

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../app_config.dart';
 import '../authentication/authentication.dart';
 import '../login/login.dart';
 
@@ -32,7 +33,7 @@ class _LoginFormState extends State<LoginForm> {
       child: CircleAvatar(
         backgroundColor: Colors.transparent,
         radius: 48.0,
-        child: Image.asset('assets/logo.png'),
+        child: AppConfig().getLogo(),
       ),
     );
 
@@ -78,7 +79,7 @@ class _LoginFormState extends State<LoginForm> {
           _onWidgetDidBuild(() {
             Scaffold.of(context).showSnackBar(
               SnackBar(
-                content: Text('${state.error}'),
+                content: Center(child: Text('${state.error}')),
                 backgroundColor: Colors.red,
               ),
             );
@@ -99,17 +100,17 @@ class _LoginFormState extends State<LoginForm> {
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 16.0),
                 child: RaisedButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(24),
-                  ),
-                  onPressed:
-                      state is! LoginLoading ? _onLoginButtonPressed : null,
-                  child: Text('Entrar', style: TextStyle(color: Colors.white)),
-
-                  padding: EdgeInsets.all(12),
-                  color: Theme.of(context).primaryColor
-                  // child: Text('Log In', style: TextStyle(color: Colors.white)),
-                ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(24),
+                    ),
+                    onPressed:
+                        state is! LoginLoading ? _onLoginButtonPressed : null,
+                    child:
+                        Text('Entrar', style: TextStyle(color: Colors.white)),
+                    padding: EdgeInsets.all(12),
+                    color: Theme.of(context).primaryColor
+                    // child: Text('Log In', style: TextStyle(color: Colors.white)),
+                    ),
               ),
               forgotLabel
             ],

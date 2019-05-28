@@ -22,8 +22,7 @@ class UserRepository {
       'password': password
     };
 
-    http.Response res = await http.post(
-        AppConfig().loginUrl,
+    http.Response res = await http.post(AppConfig().loginUrl,
         headers: {"Content-Type": "application/json"},
         body: json.encode(postData));
 
@@ -55,6 +54,17 @@ class UserRepository {
     return;
   }
 
+  Future<void> persistTheme(String themeName) async {
+    try {
+      print('UserRepo - 59');
+      print(themeName);
+      await persistData('user.theme_name', themeName);
+      return true;
+    } catch (error) {
+      throw (error);
+    }
+  }
+
   Future<void> persistUser(User user) async {
     try {
       await persistData('user.first_name', user.first_name);
@@ -80,32 +90,40 @@ class UserRepository {
   }
 
   Future<int> getUserId() async {
-    User currentUser = User.fromMap(await storage.readAll());
-    return currentUser.id;
+    return int.parse(await storage.read(key: 'user.id'));
   }
+
   Future<String> getToken() async {
-    User currentUser = User.fromMap(await storage.readAll());
-    return currentUser.auth_token;
+    return await storage.read(key: 'user.auth_token');
+  }
+
+  Future<String> getTheme() async {
+    return await storage.read(key: 'user.theme_name');
   }
 
   Future<bool> hasToken() async {
     Map<String, String> items = await storage.readAll();
     if (items.length > 0) {
-      User currentUser = User.fromMap(await storage.readAll());
-      try {
-        http.Response res = await http.get(
-            '${AppConfig().apiUrl}users/${currentUser.id}',
-            headers: {
-              "Content-Type": "application/json",
-              "Authorization": "Bearer ${currentUser.auth_token}"
-            });
+      String _token = await getToken();
+      if (_token != null) {
+        int _id = await getUserId();
 
-        if (res.statusCode == 200) {
-          print('Validado!');
-          return true;
+        try {
+          http.Response res = await http
+              .get('${AppConfig().apiUrl}users/${_id}', headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer ${_token}"
+          });
+
+          if (res.statusCode == 200) {
+            print('Validado!');
+            return true;
+          }
+        } catch (error) {
+          deleteAll();
+          return false;
         }
-      } catch (error) {
-        deleteAll();
+      } else {
         return false;
       }
     }

@@ -31,17 +31,16 @@ class SimpleBlocDelegate extends BlocDelegate {
   }
 }
 
-void main() {
-
+void main() async {
   AppConfig().setAppConfig(
-    appEnvironment: AppEnvironment.DEV,
-    apiUrl: 'http://localhost:3000/api/v1/',
-    loginUrl: 'http://localhost:3000/api/v1/authenticate',
-    themeData: ThemeData(
-      primarySwatch: Colors.orange,
-      primaryColor: Colors.blue,
-    )
-  );
+      appEnvironment: AppEnvironment.DEV,
+      apiUrl: 'http://localhost:3000/api/v1/',
+      loginUrl: 'http://localhost:3000/api/v1/authenticate');
+  
+  String userTheme = await UserRepository().getTheme();
+  print('MainDev - 41');
+  print(userTheme);
+  AppConfig().setThemeConfig(userTheme);
 
   BlocSupervisor.delegate = SimpleBlocDelegate();
   runApp(App(userRepository: UserRepository()));
@@ -76,27 +75,33 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<AuthenticationBloc>(
-      bloc: _authenticationBloc,
-      child: MaterialApp(
-        theme: AppConfig().themeData,
-        home: BlocBuilder<AuthenticationEvent, AuthenticationState>(
-          bloc: _authenticationBloc,
-          builder: (BuildContext context, AuthenticationState state) {
-            if (state is AuthenticationUninitialized) {
-              return SplashPage();
-            }
-            if (state is AuthenticationAuthenticated) {
-              return HomePage();
-            }
-            if (state is AuthenticationUnauthenticated) {
-              return LoginPage(userRepository: _userRepository);
-            }
-            if (state is AuthenticationLoading) {
-              return LoadingIndicator();
-            }
+        bloc: _authenticationBloc,
+        child: StreamBuilder<ThemeData>(
+          initialData: AppConfig().themeData,
+          stream: _authenticationBloc.outTheme,
+          builder: (BuildContext context, AsyncSnapshot<ThemeData> snapshot) {
+            UserRepository().persistTheme(AppConfig().themeName);
+            return MaterialApp(
+              theme: snapshot.data,
+              home: BlocBuilder<AuthenticationEvent, AuthenticationState>(
+                bloc: _authenticationBloc,
+                builder: (BuildContext context, AuthenticationState state) {
+                  if (state is AuthenticationUninitialized) {
+                    return SplashPage();
+                  }
+                  if (state is AuthenticationAuthenticated) {
+                    return HomePage();
+                  }
+                  if (state is AuthenticationUnauthenticated) {
+                    return LoginPage(userRepository: _userRepository);
+                  }
+                  if (state is AuthenticationLoading) {
+                    return LoadingIndicator();
+                  }
+                },
+              ),
+            );
           },
-        ),
-      ),
-    );
+        ));
   }
 }

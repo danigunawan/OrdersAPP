@@ -1,14 +1,21 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 import 'package:orders_app/services/user_repository.dart';
+import 'package:rxdart/rxdart.dart';
 
+import '../app_config.dart';
 import 'authentication.dart';
 
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
   final UserRepository userRepository;
+
+  final _theme = BehaviorSubject<ThemeData>();
+  Function(ThemeData) get inTheme => _theme.sink.add;
+  Stream<ThemeData> get outTheme => _theme.stream;
 
   AuthenticationBloc({@required this.userRepository})
       : assert(userRepository != null);

@@ -29,3 +29,8 @@ class ValidateUser extends AuthenticationEvent {
   @override
   String toString() => 'ValidateUser';
 }
+
+class AppChangeTheme extends AuthenticationEvent {
+  @override
+  String toString() => 'AppChangeTheme';
+}
