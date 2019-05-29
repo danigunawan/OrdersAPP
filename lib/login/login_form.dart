@@ -62,10 +62,7 @@ class _LoginFormState extends State<LoginForm> {
     );
 
     final forgotLabel = FlatButton(
-      child: Text(
-        'Esqueceu sua Senha?',
-        style: TextStyle(color: Colors.black54),
-      ),
+      child: Text('Esqueceu sua Senha?'),
       onPressed: () {},
     );
 

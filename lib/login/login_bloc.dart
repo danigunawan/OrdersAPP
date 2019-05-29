@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
+import 'package:orders_app/models/user_model.dart';
 import 'package:orders_app/services/user_repository.dart';
 
 import '../authentication/authentication.dart';
@@ -30,7 +31,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           username: event.username,
           password: event.password,
         );
-        
+
         authenticationBloc.dispatch(LoggedIn(user: user));
         yield LoginInitial();
       } catch (error) {
